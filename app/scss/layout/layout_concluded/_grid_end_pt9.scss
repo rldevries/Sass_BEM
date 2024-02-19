@@ -1,0 +1,30 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;     // fractional unit with only 1 column
+    grid-template-rows: auto auto;
+    gap: 40px;
+    max-width: 1000px;  // entire grid space set to max-width
+    margin-inline: auto;    // uses margin-inline-start, margin-inline-end properties
+    //margin-block: 50px;      // uses margin-block-start, margin-block-end properties
+    width: min(100% - 40px, 1000px);
+
+    @media (min-width: 900px) {
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    &__main,
+    &__sidebar {   // 2 or more selectors - called compound selector
+        padding: 40px;      // 40px for top, right, bottom and left
+    }
+
+    &__main {
+        background-color: hsl(219, 79%, 66%);   // is cornflowerblue switched to hsl
+    }
+
+    &__sidebar {
+        background-color: hsl(120, 61%, 34%);      // is forestgreen switched to hsl
+
+    }
+}
+

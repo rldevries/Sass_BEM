@@ -1,0 +1,29 @@
+@use '../util/' as u; // include this folder for google.fonts
+
+h1, h2, h3 {
+    font-weight: 400;   // bold
+    line-height: 1.1;   // converts to 110% for headlines
+    margin-top: 0;      // browser h1, h2, h3 reset
+}
+
+h1 {    // the default will be for mobile, chgs in @media for larger 
+    // font-size: clamp(28px, 16px + 2vw, 40px); ref value for below
+    font-size: clamp(u.remUnit(28) , u.remUnit(16) + 2vw, u.remUnit(40));
+}
+
+h2 {    // the default will be for mobile, chgs in @media for larger 
+    // font-size: clamp(22px, 14px + 1.5vw, 36px);
+    font-size: clamp(u.remUnit(22), u.remUnit(14) + 1.5vw, u.remUnit(36));
+}
+
+p {
+    margin-top: 0;  // browser default reset 
+    font-size: u.remUnit(16);
+}
+
+a,
+a:visited,
+a:active {
+    text-decoration: none;  // browser default reset
+}
+

@@ -1,0 +1,16 @@
+
+:root {
+  // colors 
+  --background-color: hsl(0, 0%, 11%);
+  --text-color: hsl(0, 0%, 100%);
+}
+
+// child element and considered 'helper class'
+.rebeccaPurple {
+    background-color: hsl(270, 53%, 56%);
+}
+
+// child element and considered 'helper class'
+.cedarGreen {
+    background-color: hsl(120, 61%, 34%);
+}   

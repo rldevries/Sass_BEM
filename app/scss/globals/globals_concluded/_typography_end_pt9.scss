@@ -1,0 +1,16 @@
+// 
+h1, h2, h3 {
+    font-weight: 700;   // bold
+    line-height: 1.1;   // converts to 110% for headlines
+    margin-top: 0;      // browser h1, h2, h3 reset
+}
+
+p {
+    margin-top: 0;  // browser default reset 
+}
+
+a,
+a:visited,
+a:active {
+    text-decoration: none;  // browser default reset
+}

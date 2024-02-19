@@ -1,0 +1,53 @@
+@use 'functions' as f;      // can't load the 'util' folder since we are already here
+
+// 700px (mobile), 900px (tablet), 1440px desktops, >1440px is default xl 
+
+$breakpoints-up: (
+    //"medium": 43.75em,      // 700px, it's merely a point of ref
+    //"large": 56.25em,       // 900px, it's merely a point of ref
+    //"xlarge": 90em,         // 1440px, it's merely a point of ref
+    'medium': f.emUnit(700),    // using the function emUnit to convert 'em' to 'rem' replacing ln6
+    'large': f.emUnit(900),
+    'xlarge': f.emUnit(1440),   // everything else is after this breakpoint
+);
+
+// $breakpoints-up: (
+//     //"medium": 43.75em,      // 700px, it's merely a point of ref
+//     //"large": 56.25em,       // 900px, it's merely a point of ref
+//     //"xlarge": 90em,         // 1440px, it's merely a point of ref
+//     'medium': 700px,    // using the function emUnit to convert 'em' to 'rem' replacing ln6
+//     'large': 900px,
+//     'xlarge': 1440px,   // everything else is after this breakpoint
+// );  
+
+// 699.98px, 899.98px, 1439.98px for max-width points (prevents overlap)
+// using emUnit function to convert em to rem 
+$breakpoints-dn: (
+    // 'small': 43.7485em,     // 0.02px from 700px (as researched thru 'Bootstrap')
+    // 'medium': 56.24875em,   //    "     "  900px
+    // 'large': 89.99875em,    //    "     "  1440px
+    'small': f.emUnit(699.98),
+    'medium': f.emUnit(899.98),
+    'large': f.emUnit(1439.98),
+);
+
+// $breakpoints-dn: (
+//     // 'small': 43.7485em,     // 0.02px from 700px (as researched thru 'Bootstrap')
+//     // 'medium': 56.24875em,   //    "     "  900px
+//     // 'large': 89.99875em,    //    "     "  1440px
+//     'small': 699.98px,
+//     'medium': 899.98px,
+//     'large': 1439.98px,
+// );
+
+@mixin breakpoint-up($size) {
+    @media (min-width: map-get($breakpoints-up, $size)) {
+        @content;
+    }
+};
+
+@mixin breakpoint-dn($size) {
+    @media (max-width: map-get($breakpoints-dn, $size)) {
+        @content;
+    }
+};

@@ -1,0 +1,62 @@
+@use '../util/' as u;   // this is a namespace - must include where applicable
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;     // fractional unit with only 1 column
+    grid-template-rows: auto auto;
+    gap: u.remUnit(40);
+    max-width: 1000px;      // entire grid space set to max-width
+    //margin-left: auto;   with line 10 below will center content
+    //margin-right: auto;
+    //margin: 0 auto;       also sets top to 0, l/r to auto
+    //margin: 0 auto 0 auto;    also sets l/r margins to auto (clockwise)
+    margin-inline: auto;   // uses margin-inline-start, margin-inline-end props
+
+    //margin-block: 50px;    // uses margin-block-start, margin-block-end props
+    width: min(100% - u.remUnit(40), u.remUnit(1000));  // once display reaches over 1000px - sets to 1000px
+    
+
+    @include u.breakpoint-up(large) {  // namespace req'd
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    &__main,
+    &__sidebar {   // 2 or more selectors - called compound selector
+        padding: u.remUnit(40);      // 40px for top, right, bottom and left
+    }
+
+    &__main {
+        background-color: hsl(219, 79%, 66%);   // is cornflowerblue switched to hsl
+    
+        @include u.breakpoint-up(medium) {
+            background-color: hsl(120, 98%, 18%);   // dk green
+        }
+
+        @include u.breakpoint-up(large) {
+            background-color: hsl(39, 100%, 35%);   // dk orange
+        }
+    }
+
+    &__sidebar {    
+
+        @include u.breakpoint-dn(medium){          // 900px and down, since max-width
+            text-align: center;
+            color: hsl(0, 0%, 30%);      
+            background-color: yellow;       
+        }
+
+        @include u.breakpoint-dn(small) {
+            text-align: right;
+            background-color: pink;
+        }
+    }
+
+    // parent element
+    &__widget {
+        padding: u.remUnit(16);   // recall remUnit converts val from px to rem
+
+    }
+
+}
+

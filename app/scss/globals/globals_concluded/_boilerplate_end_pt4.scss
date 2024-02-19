@@ -1,0 +1,20 @@
+@use '../util' as u;     // shows compiler where location for 'fonts.scss' is to locate the $font variable
+
+html {
+    box-sizing: border-box; // ensures if padding/borders used, it's included in final dimension
+    font-size: 100%;    // accessibility feat ensuring size is 100% browser's default setting (16px)
+}
+
+*,      // inherits above html's settings through inherit
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;      // resets browser default
+    padding: 0;     //  ""
+    font-family: u.$fontFamily;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}

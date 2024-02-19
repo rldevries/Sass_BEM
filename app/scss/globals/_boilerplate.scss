@@ -1,0 +1,54 @@
+@use '../util' as u;     // shows compiler where location for 'fonts.scss' is to locate the $font variable
+
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 300;
+    src: url('/assets/fonts/roboto-light-webfont.woff2') format('woff2'),
+        url('/assets/fonts/roboto-light-webfont.woff') format('woff');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 400;
+    src: url('/assets/fonts/roboto-regular-webfont.woff2') format('woff2'),
+        url('/assets/fonts/roboto-regular-webfont.woff') format('woff');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 700;
+    src: url('/assets/fonts/roboto-bold-webfont.woff2') format('woff2'),
+        url('/assets/fonts/roboto-bold-webfont.woff') format('woff');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-style: italic;
+    src: url('/assets/fonts/roboto-italic-webfont.woff2') format('woff2'),
+        url('/assets/fonts/roboto-italic-webfont.woff') format('woff');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 900;
+    src: url('/assets/fonts/roboto-black-webfont.woff2') format('woff2'),
+        url('/assets/fonts/roboto-black-webfont.woff') format('woff');
+}
+
+html {
+    box-sizing: border-box; // ensures if padding/borders used, it's included in final dimension
+    font-size: 100%;    // accessibility feat ensuring size is 100% browser's default setting (16px)
+}
+
+*,      // inherits above html's settings through inherit
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;      // resets browser default
+    padding: 0;     //  ""
+    // font-family: u.$fontFamily;
+    font-family: 'Roboto', sans-serif;      // sans-serif is the fallback
+    font-weight: 400;                       // added for Roboto
+    background-color: var(--background-color);
+    color: var(--text-color);
+}

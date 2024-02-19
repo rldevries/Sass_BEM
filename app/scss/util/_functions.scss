@@ -1,0 +1,29 @@
+@use 'sass:math'; // custom namespace not req'd as 'math' is explanatory
+
+// font-size: rem(30) as pseudo-code should use func 'rem' with param (30)
+// Throw 'error' if 'unit' value added to number (should be unitless)
+@function remUnit($ourPixel) {
+    // divide ourPixel value by 16 to return rem value - concatenate 'rem'
+    // 'if' $ourPixel has no units, then execute 
+    @if math.is-unitless($ourPixel) {           // .is-unitless is boolean exp
+        @return math.div($ourPixel, 16) + rem;
+    }
+
+    // 'else' return 'error' msg to the 'user'@else {
+    @else {
+        @error('value entered', $ourPixel, 'contains a unit - don\'t use units w/remUnit function');
+    }
+}
+
+@function emUnit($ourPixel) {
+    // 
+    // 'if' $
+    @if math.is-unitless($ourPixel) {           
+        @return math.div($ourPixel, 16) + em;
+    }
+
+    // 'else' return 'error' msg to the 'user'
+    @else {
+        @error('value entered', $ourPixel, 'don\'t use units when using emUnit function');
+    }
+}
